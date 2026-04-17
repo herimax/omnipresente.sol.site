@@ -139,7 +139,64 @@ export default function LinktreePage() {
             title="Video de Herimax" 
           />
         </section>
+        
+{/* ==================== SECCIÓN APÓYAME - SIMPLIFICADA ==================== */}
+      <section className="py-16 border-t border-gray-800">
+        <div className="max-w-2xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-3">Apóyame</h2>
+          <p className="text-center text-gray-400 mb-10 text-lg">
+            Si mis versos, mi música o mi presencia te acompañan,<br />
+            puedes apoyarme directamente. Gracias por el amor ❤️
+          </p>
 
+          <div className="space-y-6">
+            {/* Solana Name Service */}
+            <div className="bg-zinc-900/50 border border-zinc-700 rounded-3xl p-6 text-center">
+              <p className="text-sm text-gray-400 mb-2">Nombre Solana</p>
+              <p className="font-mono text-xl text-white mb-4">omnipresente.sol</p>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText('omnipresente.sol');
+                  // Feedback simple (puedes mejorar después)
+                  const btn = document.getElementById('copy-sol');
+                  if (btn) btn.textContent = '¡Copiado!';
+                  setTimeout(() => { if (btn) btn.textContent = 'Copiar omnipresente.sol'; }, 2000);
+                }}
+                id="copy-sol"
+                className="w-full bg-white text-black font-medium py-4 px-6 rounded-2xl hover:bg-gray-200 transition-colors"
+              >
+                Copiar omnipresente.sol
+              </button>
+            </div>
+
+            {/* Ethereum */}
+            <div className="bg-zinc-900/50 border border-zinc-700 rounded-3xl p-6 text-center">
+              <p className="text-sm text-gray-400 mb-2">Ethereum (ETH / cualquier token)</p>
+              <p className="font-mono text-[15px] text-white break-all mb-4">
+                0x4090f1eb674317fec844b354e26ce232b0cf0fbf
+              </p>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText('0x4090f1eb674317fec844b354e26ce232b0cf0fbf');
+                  const btn = document.getElementById('copy-eth');
+                  if (btn) btn.textContent = '¡Copiado!';
+                  setTimeout(() => { if (btn) btn.textContent = 'Copiar dirección ETH'; }, 2000);
+                }}
+                id="copy-eth"
+                className="w-full bg-white text-black font-medium py-4 px-6 rounded-2xl hover:bg-gray-200 transition-colors"
+              >
+                Copiar dirección ETH
+              </button>
+            </div>
+          </div>
+
+          <p className="text-center text-xs text-gray-500 mt-10">
+            Usa Phantom, Solflare, MetaMask o cualquier wallet.<br />
+            Envía cualquier cantidad, sin monto mínimo.
+          </p>
+        </div>
+      </section>
+      {/* ==================== FIN SECCIÓN APÓYAME ==================== */}
         {/* Divider */}
         <div className="w-full h-px bg-border/50 mt-12" />
 
