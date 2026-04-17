@@ -155,7 +155,7 @@ export default function LinktreePage() {
             />
           </div>
         </section>
-        
+
         {/* Divider */}
         <div className="w-full h-px bg-border/50 mt-12" />
 
@@ -178,19 +178,19 @@ export default function LinktreePage() {
 
           <div className="text-sm text-foreground/90 leading-relaxed space-y-4">
             <p>
-              Soy <strong className="text-foreground">Herimax</strong>, conocido como <strong className="text-foreground">El Omnipresente</strong>.
+              {t.aboutMeText1}
             </p>
             <p>
-              Poeta desde hace mas de 20 años, llevo tejiendo versos mucho antes de que el mundo digital existiera. Desde 2019 estoy inmerso en el universo cripto, donde encontre un nuevo lienzo para crear.
+              {t.aboutMeText2}
             </p>
             <p>
-              Me dedico a la creacion de contenido y, ultimamente, a transformar mis letras en musica con inteligencia artificial: el encuentro perfecto entre alma analogica y tecnologia artificial.
+              {t.aboutMeText3}
             </p>
             <p>
-              Desde 2022 mi presencia se ha multiplicado en comunidades afines, convirtiendome en ese hilo invisible que conecta ideas, personas y momentos.
+              {t.aboutMeText4}
             </p>
             <p>
-              Aqui sigo: ligero de lo material, conectado con mi elemento natural.
+              {t.aboutMeText5}
             </p>
           </div>
         </section>
@@ -199,7 +199,7 @@ export default function LinktreePage() {
         <div className="w-full h-px bg-border/50 mt-12" />
 
         {/* Solana Tip Section */}
-        <SolanaTip />
+        <SolanaTip language={language} />
 
         {/* Divider */}
         <div className="w-full h-px bg-border/50 mt-12" />
@@ -211,7 +211,7 @@ export default function LinktreePage() {
             <h2 className="text-xl font-bold text-foreground">{t.versesBoard}</h2>
           </div>
           <p className="text-sm text-muted-foreground text-center mb-8">
-            Espacio para mis poemas, reflexiones y citas que resuenan
+            {t.versesBoardSubtitle}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
