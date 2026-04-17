@@ -87,6 +87,19 @@ sacarte de una vez de mi cabeza,
 porque mereces amor con nobleza,
 y no las sobras de tu mesa"`,
   },
+  {
+    texto: `"¿Quieres amarme desde las alturas,
+convertirte en niebla y arroparme,
+transformar la forma de amarme
+hasta tatuarte mi murmullo?
+Eres luz dentro de mi forma de amar,
+te robaste hasta mis ojos sin pensar...
+
+Y yo te pido con sutileza
+amarte en la incertidumbre,
+en lo profundo de tu riqueza,
+yo encontré una fortuna en tu belleza"`,
+  },
 ]
 
 // ========================================
