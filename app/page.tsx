@@ -1,9 +1,14 @@
+'use client'
+
+import { useState } from 'react'
 import { ProfileHeader } from "@/components/profile-header"
 import { YouTubeEmbed } from "@/components/youtube-embed"
 import { LinkCard } from "@/components/link-card"
 import { SolanaIcon, MusicIcon, PlaylistIcon, NearIcon, TortoiseIcon } from "@/components/social-icons"
 import { FloatingDecorations } from "@/components/decorations"
 import { SolanaTip } from "@/components/solana-tip"
+import { LanguageSelector } from "@/components/language-selector"
+import { useTranslation, type Language } from "@/lib/translations"
 import { Feather } from "lucide-react"
 
 // ========================================
@@ -75,8 +80,13 @@ Pero al final, ¿quién va a ceder?"`,
 // ========================================
 
 export default function LinktreePage() {
+  const [language, setLanguage] = useState<Language>('es')
+  const t = useTranslation(language)
+
   return (
     <main className="min-h-screen bg-background relative overflow-hidden">
+      <LanguageSelector language={language} onLanguageChange={setLanguage} />
+      
       {/* Floating owls, scrolls and quills decoration */}
       <FloatingDecorations />
 
@@ -107,7 +117,7 @@ export default function LinktreePage() {
         <section className="w-full mt-8" aria-label="Playlist">
           <div className="flex items-center gap-2 mb-4">
             <PlaylistIcon className="w-5 h-5 text-primary" />
-            <h2 className="text-lg font-semibold text-foreground">Mi nueva playlist de 4 canciones increíbles de mi puño y letra, Astroemociones</h2>
+            <h2 className="text-lg font-semibold text-foreground">{t.playlist}</h2>
           </div>
           <a
             href="https://youtube.com/playlist?list=PLBU60ByNyJxXEPdHopC8ctkwcQXY8Rqko&si=-ecBV-8P6JFa0ICH"
@@ -124,7 +134,7 @@ export default function LinktreePage() {
                 className="w-full h-full"
               />
             </div>
-            <p className="text-sm text-muted-foreground text-center">Ver playlist completa en YouTube</p>
+            <p className="text-sm text-muted-foreground text-center">{t.viewPlaylist}</p>
           </a>
         </section>
 
@@ -132,7 +142,7 @@ export default function LinktreePage() {
         <section className="w-full mt-8" aria-label="Video destacado">
           <div className="flex items-center gap-2 mb-4">
             <MusicIcon className="w-5 h-5 text-primary" />
-            <h2 className="text-lg font-semibold text-foreground">Video destacado</h2>
+            <h2 className="text-lg font-semibold text-foreground">{t.videoHighlight}</h2>
           </div>
           <YouTubeEmbed 
             videoId="yGsYL2pdM20" 
@@ -195,7 +205,7 @@ export default function LinktreePage() {
         <section className="w-full mt-10" aria-label="Tablón de Versos">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Feather className="w-5 h-5 text-primary" />
-            <h2 className="text-xl font-bold text-foreground">Tablón de Versos</h2>
+            <h2 className="text-xl font-bold text-foreground">{t.versesBoard}</h2>
           </div>
           <p className="text-sm text-muted-foreground text-center mb-8">
             Espacio para mis poemas, reflexiones y citas que resuenan
@@ -228,7 +238,7 @@ export default function LinktreePage() {
             className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
           >
             <SolanaIcon className="w-4 h-4" />
-            <span>Powered by sol.site</span>
+            <span>{t.poweredBy}</span>
           </a>
           
           {/* Domain badge */}

@@ -120,6 +120,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><text y="24" font-size="28" font-family="Arial">🦉</text></svg>') 10 10, auto;
   }
   body {
     @apply bg-background text-foreground;
