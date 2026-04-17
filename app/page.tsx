@@ -139,25 +139,27 @@ export default function LinktreePage() {
         </section>
 
         {/* Video Section */}
-        <section className="w-full mt-8" aria-label="Video destacado">
+        <section className="w-full mt-8" aria-label="Videos destacados">
           <div className="flex items-center gap-2 mb-4">
             <MusicIcon className="w-5 h-5 text-primary" />
             <h2 className="text-lg font-semibold text-foreground">{t.videoHighlight}</h2>
           </div>
-          <YouTubeEmbed 
-            videoId="yGsYL2pdM20" 
-            title="Video de Herimax" 
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <YouTubeEmbed 
+              videoId="yGsYL2pdM20" 
+              title="Video de Herimax" 
+            />
+            <YouTubeEmbed 
+              videoId="DU_pXvUvyJQ" 
+              title="Video de Herimax" 
+            />
+          </div>
         </section>
         
         {/* Divider */}
         <div className="w-full h-px bg-border/50 mt-12" />
 
-        {/* Solana Tip Section */}
-        <SolanaTip />
-
-        {/* Divider */}
-        <section className="w-full mt-10" aria-label="About Me">
+        {/* About Me Section */}
           <h2 className="text-xl font-bold text-foreground text-center mb-6">About Me</h2>
           
           {/* Owl Poet Image */}
