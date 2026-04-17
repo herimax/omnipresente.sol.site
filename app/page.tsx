@@ -75,6 +75,18 @@ Pero al final, ¿quién va a ceder?
 Pero al final, ¿quién va a ceder?
 Pero al final, ¿quién va a ceder?"`,
   },
+  {
+    texto: `"Pero sin querer, yo te empecé a ghostear,
+en mí no busques el diálogo de una ilusión, ¡qué estupidez!
+Y no es inmadurez,
+hablar desde el silencio que como crítica fría e indirecta se confiesa.
+
+Perdón, es mi naturaleza...
+cortar este lazo con total firmeza,
+sacarte de una vez de mi cabeza,
+porque mereces amor con nobleza,
+y no las sobras de tu mesa"`,
+  },
 ]
 
 // ========================================
