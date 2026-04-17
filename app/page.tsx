@@ -199,7 +199,7 @@ export default function LinktreePage() {
         <div className="w-full h-px bg-border/50 mt-12" />
 
         {/* Solana Tip Section */}
-        <SolanaTip />
+        <SolanaTip language={language} />
 
         {/* Divider */}
         <div className="w-full h-px bg-border/50 mt-12" />
@@ -211,7 +211,7 @@ export default function LinktreePage() {
             <h2 className="text-xl font-bold text-foreground">{t.versesBoard}</h2>
           </div>
           <p className="text-sm text-muted-foreground text-center mb-8">
-            Espacio para mis poemas, reflexiones y citas que resuenan
+            {t.versesBoardSubtitle}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

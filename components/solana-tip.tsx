@@ -1,12 +1,18 @@
 "use client"
 
 import { useState } from "react"
-import { Copy, Check, Wallet } from "lucide-react"
+import { Copy, Check } from "lucide-react"
+import { useTranslation, type Language } from "@/lib/translations"
 
 const SOLANA_ADDRESS = "omnipresente.sol"
 const ETHEREUM_ADDRESS = "0x4090f1eb674317fec844b354e26ce232b0cf0fbf"
 
-export function SolanaTip() {
+interface SolanaTipProps {
+  language?: Language
+}
+
+export function SolanaTip({ language = 'es' }: SolanaTipProps) {
+  const t = useTranslation(language)
   const [copiedSolana, setCopiedSolana] = useState(false)
   const [copiedEth, setCopiedEth] = useState(false)
 
@@ -31,17 +37,17 @@ export function SolanaTip() {
   }
 
   return (
-    <section className="w-full mt-10" aria-label="Apóyame">
-      <h2 className="text-xl font-bold text-foreground text-center mb-4">Apoyame</h2>
+    <section className="w-full mt-10" aria-label={t.supportMe}>
+      <h2 className="text-xl font-bold text-foreground text-center mb-4">{t.supportMe}</h2>
       
       <p className="text-sm text-foreground/90 text-center leading-relaxed mb-8">
-        Si mis versos, mi musica o mi presencia te acompanan, puedes apoyarme directamente. Gracias totales 🦉
+        {t.supportText}
       </p>
 
       <div className="flex flex-col items-center gap-8">
         {/* Solana Section */}
         <div className="w-full flex flex-col items-center gap-3">
-          <h3 className="text-sm font-semibold text-foreground/80">Solana</h3>
+          <h3 className="text-sm font-semibold text-foreground/80">{t.solanaName}</h3>
           <div className="px-4 py-2 rounded-lg bg-card/50 border border-border/50">
             <span className="font-mono text-xs text-primary/80">
               {SOLANA_ADDRESS}
@@ -54,12 +60,12 @@ export function SolanaTip() {
             {copiedSolana ? (
               <>
                 <Check className="w-4 h-4" />
-                Copiado!
+                {t.copied}
               </>
             ) : (
               <>
                 <Copy className="w-4 h-4" />
-                Copiar
+                {t.copyButton}
               </>
             )}
           </button>
@@ -67,7 +73,7 @@ export function SolanaTip() {
 
         {/* Ethereum Section */}
         <div className="w-full flex flex-col items-center gap-3">
-          <h3 className="text-sm font-semibold text-foreground/80">Ethereum</h3>
+          <h3 className="text-sm font-semibold text-foreground/80">{t.ethereumName}</h3>
           <div className="px-4 py-2 rounded-lg bg-card/50 border border-border/50 max-w-xs">
             <span className="font-mono text-xs text-primary/80 break-all">
               {ETHEREUM_ADDRESS}
@@ -80,12 +86,12 @@ export function SolanaTip() {
             {copiedEth ? (
               <>
                 <Check className="w-4 h-4" />
-                Copiado!
+                {t.copied}
               </>
             ) : (
               <>
                 <Copy className="w-4 h-4" />
-                Copiar
+                {t.copyEth}
               </>
             )}
           </button>
@@ -93,7 +99,7 @@ export function SolanaTip() {
       </div>
 
       <p className="text-xs text-muted-foreground text-center mt-8 leading-relaxed">
-        Abre con tu wallet favorito de Solana o Ethereum y envia cualquier cantidad
+        {t.sendDirect}
       </p>
     </section>
   )
