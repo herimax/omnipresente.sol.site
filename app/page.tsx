@@ -178,19 +178,19 @@ export default function LinktreePage() {
 
           <div className="text-sm text-foreground/90 leading-relaxed space-y-4">
             <p>
-              Soy <strong className="text-foreground">Herimax</strong>, conocido como <strong className="text-foreground">El Omnipresente</strong>.
+              {t.aboutMeText1}
             </p>
             <p>
-              Poeta desde hace mas de 20 años, llevo tejiendo versos mucho antes de que el mundo digital existiera. Desde 2019 estoy inmerso en el universo cripto, donde encontre un nuevo lienzo para crear.
+              {t.aboutMeText2}
             </p>
             <p>
-              Me dedico a la creacion de contenido y, ultimamente, a transformar mis letras en musica con inteligencia artificial: el encuentro perfecto entre alma analogica y tecnologia artificial.
+              {t.aboutMeText3}
             </p>
             <p>
-              Desde 2022 mi presencia se ha multiplicado en comunidades afines, convirtiendome en ese hilo invisible que conecta ideas, personas y momentos.
+              {t.aboutMeText4}
             </p>
             <p>
-              Aqui sigo: ligero de lo material, conectado con mi elemento natural.
+              {t.aboutMeText5}
             </p>
           </div>
         </section>
