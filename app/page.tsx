@@ -160,7 +160,8 @@ export default function LinktreePage() {
         <div className="w-full h-px bg-border/50 mt-12" />
 
         {/* About Me Section */}
-          <h2 className="text-xl font-bold text-foreground text-center mb-6">About Me</h2>
+        <section className="w-full mt-10" aria-label="About Me">
+          <h2 className="text-xl font-bold text-foreground text-center mb-6">{t.aboutMe}</h2>
           
           {/* Owl Poet Image */}
           <div className="flex justify-center mb-8">
@@ -192,6 +193,7 @@ export default function LinktreePage() {
               Aqui sigo: ligero de lo material, conectado con mi elemento natural.
             </p>
           </div>
+        </section>
         </section>
 
         {/* Divider */}
