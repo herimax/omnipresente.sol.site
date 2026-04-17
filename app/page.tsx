@@ -155,7 +155,7 @@ export default function LinktreePage() {
             />
           </div>
         </section>
-        
+
         {/* Divider */}
         <div className="w-full h-px bg-border/50 mt-12" />
 
