@@ -218,6 +218,15 @@ export default function LinktreePage() {
               {t.aboutMeText5}
             </p>
           </div>
+
+          {/* Signature */}
+          <div className="flex justify-center mt-8">
+            <img 
+              src="/signature.png" 
+              alt="Firma de Herimax"
+              className="w-64 h-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </div>
         </section>
 
         {/* Divider */}
