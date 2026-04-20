@@ -38,24 +38,25 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
 
   return (
     <section className="w-full mt-10" aria-label={t.supportMe}>
-      <h2 className="text-xl font-bold text-foreground text-center mb-4">{t.supportMe}</h2>
+      <h2 className="text-2xl font-bold text-foreground text-center mb-3">{t.supportMe}</h2>
       
-      <p className="text-sm text-foreground/90 text-center leading-relaxed mb-8">
+      <p className="text-sm text-foreground/90 text-center leading-relaxed mb-10 max-w-2xl mx-auto">
         {t.supportText}
       </p>
 
-      <div className="flex flex-col items-center gap-8">
-        {/* Solana Section */}
-        <div className="w-full flex flex-col items-center gap-3">
-          <h3 className="text-sm font-semibold text-foreground/80">{t.solanaName}</h3>
-          <div className="px-4 py-2 rounded-lg bg-card/50 border border-border/50">
-            <span className="font-mono text-xs text-primary/80">
+      {/* Three Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        {/* Card 1: Solana */}
+        <div className="p-6 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm flex flex-col items-center gap-4">
+          <h3 className="text-lg font-semibold text-primary">{t.solanaName}</h3>
+          <div className="w-full px-4 py-3 rounded-lg bg-background/50 border border-border/50">
+            <span className="font-mono text-xs text-foreground/70 block text-center break-all">
               {SOLANA_ADDRESS}
             </span>
           </div>
           <button
             onClick={handleCopySolana}
-            className="px-6 py-2 rounded-lg bg-primary/10 border border-primary/30 hover:bg-primary/20 transition-colors flex items-center gap-2 text-sm text-primary"
+            className="w-full px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/50 hover:bg-emerald-500/30 transition-colors flex items-center justify-center gap-2 text-sm text-emerald-400 font-medium"
           >
             {copiedSolana ? (
               <>
@@ -71,17 +72,17 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
           </button>
         </div>
 
-        {/* Ethereum Section */}
-        <div className="w-full flex flex-col items-center gap-3">
-          <h3 className="text-sm font-semibold text-foreground/80">{t.ethereumName}</h3>
-          <div className="px-4 py-2 rounded-lg bg-card/50 border border-border/50 max-w-xs">
-            <span className="font-mono text-xs text-primary/80 break-all">
+        {/* Card 2: Ethereum */}
+        <div className="p-6 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm flex flex-col items-center gap-4">
+          <h3 className="text-lg font-semibold text-primary">{t.ethereumName}</h3>
+          <div className="w-full px-4 py-3 rounded-lg bg-background/50 border border-border/50">
+            <span className="font-mono text-xs text-foreground/70 block text-center break-all">
               {ETHEREUM_ADDRESS}
             </span>
           </div>
           <button
             onClick={handleCopyEth}
-            className="px-6 py-2 rounded-lg bg-primary/10 border border-primary/30 hover:bg-primary/20 transition-colors flex items-center gap-2 text-sm text-primary"
+            className="w-full px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/50 hover:bg-emerald-500/30 transition-colors flex items-center justify-center gap-2 text-sm text-emerald-400 font-medium"
           >
             {copiedEth ? (
               <>
@@ -96,28 +97,32 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
             )}
           </button>
         </div>
+
+        {/* Card 3: Ko-fi */}
+        <div className="md:col-span-1 flex flex-col items-center gap-4">
+          <h3 className="text-lg font-semibold text-foreground text-center">{t.kofiPay}</h3>
+          <a
+            href="https://ko-fi.com/herimax/tip"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full group"
+          >
+            <div className="relative w-full h-full rounded-xl overflow-hidden border border-border/50 hover:shadow-xl transition-all duration-300">
+              <img
+                src="/kofi-banner.jpg"
+                alt="Support Herimax on Ko-fi"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+            </div>
+          </a>
+        </div>
       </div>
 
-      <p className="text-xs text-muted-foreground text-center mt-8 leading-relaxed">
+      {/* Footer Text */}
+      <p className="text-xs text-muted-foreground text-center leading-relaxed px-4">
         {t.sendDirect}
       </p>
-
-      {/* Ko-fi Section */}
-      <div className="w-full mt-10 flex flex-col items-center gap-4">
-        <h3 className="text-sm font-semibold text-foreground text-center">{t.kofiTitle}</h3>
-        <a
-          href="https://ko-fi.com/herimax/tip"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full max-w-md hover:opacity-80 transition-opacity"
-        >
-          <img
-            src="/kofi-banner.jpg"
-            alt="Support Herimax on Ko-fi"
-            className="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow"
-          />
-        </a>
-      </div>
     </section>
   )
 }
