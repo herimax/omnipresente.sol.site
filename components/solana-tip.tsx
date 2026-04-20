@@ -101,6 +101,23 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
       <p className="text-xs text-muted-foreground text-center mt-8 leading-relaxed">
         {t.sendDirect}
       </p>
+
+      {/* Ko-fi Section */}
+      <div className="w-full mt-10 flex flex-col items-center gap-4">
+        <h3 className="text-sm font-semibold text-foreground text-center">{t.kofiTitle}</h3>
+        <a
+          href="https://ko-fi.com/herimax"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full max-w-md hover:opacity-80 transition-opacity"
+        >
+          <img
+            src="/kofi-banner.jpg"
+            alt="Support Herimax on Ko-fi"
+            className="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          />
+        </a>
+      </div>
     </section>
   )
 }
