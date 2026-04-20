@@ -106,7 +106,7 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
       <div className="w-full mt-10 flex flex-col items-center gap-4">
         <h3 className="text-sm font-semibold text-foreground text-center">{t.kofiTitle}</h3>
         <a
-          href="https://ko-fi.com/herimax"
+          href="https://ko-fi.com/herimax/tip"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full max-w-md hover:opacity-80 transition-opacity"
