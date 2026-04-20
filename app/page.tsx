@@ -169,13 +169,17 @@ export default function LinktreePage() {
             <MusicIcon className="w-5 h-5 text-primary" />
             <h2 className="text-lg font-semibold text-foreground">{t.videoHighlight}</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <YouTubeEmbed 
               videoId="yGsYL2pdM20" 
               title="Video de Herimax" 
             />
             <YouTubeEmbed 
               videoId="DU_pXvUvyJQ" 
+              title="Video de Herimax" 
+            />
+            <YouTubeEmbed 
+              videoId="cBKwN2dSt1c" 
               title="Video de Herimax" 
             />
           </div>
