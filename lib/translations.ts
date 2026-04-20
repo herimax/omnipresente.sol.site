@@ -27,6 +27,7 @@ export const translations = {
     copyEth: 'Copiar dirección ETH',
     copied: '¡Copiado!',
     owlPoet: 'El poeta buho escribiendo versos a la luz de las velas',
+    kofiTitle: 'También me puedes apoyar con un Ko-fi',
   },
   en: {
     aboutMe: 'About Me',
@@ -50,6 +51,7 @@ export const translations = {
     copyEth: 'Copy ETH address',
     copied: 'Copied!',
     owlPoet: 'The poet owl writing verses in candlelight',
+    kofiTitle: 'You can also support me with a Ko-fi',
   },
   pt: {
     aboutMe: 'Sobre Mim',
@@ -73,6 +75,7 @@ export const translations = {
     copyEth: 'Copiar endereço ETH',
     copied: 'Copiado!',
     owlPoet: 'A coruja poeta escrevendo versos à luz das velas',
+    kofiTitle: 'Você também pode me apoiar com um Ko-fi',
   },
   fr: {
     aboutMe: 'À Propos de Moi',
@@ -96,13 +99,14 @@ export const translations = {
     copyEth: 'Copier l\'adresse ETH',
     copied: 'Copié !',
     owlPoet: 'La chouette poète écrivant des vers à la lueur des bougies',
+    kofiTitle: 'Vous pouvez également me soutenir avec un Ko-fi',
   },
   zh: {
     aboutMe: '关于我',
     aboutMeText1: '我是Herimax，被称为"无处不在"。',
     aboutMeText2: '作为超过20年的诗人，在数字世界出现之前，我就开始创作诗句。自2019年以来，我沉浸在加密宇宙中，在那里我找到了创作的新画布。',
     aboutMeText3: '我致力于内容创作，最近，我将我的歌词用人工智能转化为音乐：模拟灵魂与人工技术的完美相遇。',
-    aboutMeText4: '自2022年以来，我的存在在志同道合的社区中倍增，成为连接思想、人物和时刻的隐形线索。',
+    aboutMeText4: '自2022年以来，我的存在在志同道合的社区中倍增，成为连接思想、人物和时���的隐形线索。',
     aboutMeText5: '我在这里：物质上轻盈，与我的自然元素相连。',
     supportMe: '用Solana支持我',
     supportText: '如果我的诗句、音乐或存在陪伴着你，你可以直接用SOL或USDC支持我。非常感谢🦉',
@@ -119,6 +123,7 @@ export const translations = {
     copyEth: '复制 ETH 地址',
     copied: '已复制!',
     owlPoet: '诗人猫头鹰在烛光下写诗',
+    kofiTitle: '你也可以用 Ko-fi 支持我',
   },
   ko: {
     aboutMe: '나에 대해',
@@ -142,6 +147,7 @@ export const translations = {
     copyEth: 'ETH 주소 복사',
     copied: '복사됨!',
     owlPoet: '촛불 속에서 시를 쓰는 시인 올빼미',
+    kofiTitle: 'Ko-fi로도 저를 지원할 수 있습니다',
   },
 }
 
