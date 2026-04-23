@@ -6,7 +6,6 @@ import { Play, Pause } from 'lucide-react'
 export function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isFloating, setIsFloating] = useState(false)
 
   const togglePlayPause = () => {
     if (audioRef.current) {
@@ -14,8 +13,9 @@ export function AudioPlayer() {
         audioRef.current.pause()
         setIsPlaying(false)
       } else {
+        audioRef.current.muted = false
         audioRef.current.play().catch(err => {
-          console.log('[v0] Audio play error:', err)
+          console.log('[v0] Audio play error:', err.message)
         })
         setIsPlaying(true)
       }
@@ -23,63 +23,45 @@ export function AudioPlayer() {
   }
 
   useEffect(() => {
-    const handlePlayPause = () => {
-      setIsPlaying(true)
-    }
-
-    const handlePause = () => {
-      setIsPlaying(false)
-    }
-
     const audio = audioRef.current
-    if (audio) {
-      audio.addEventListener('play', handlePlayPause)
-      audio.addEventListener('pause', handlePause)
+    if (!audio) return
 
-      return () => {
-        audio.removeEventListener('play', handlePlayPause)
-        audio.removeEventListener('pause', handlePause)
-      }
+    const handlePlay = () => setIsPlaying(true)
+    const handlePause = () => setIsPlaying(false)
+
+    audio.addEventListener('play', handlePlay)
+    audio.addEventListener('pause', handlePause)
+
+    return () => {
+      audio.removeEventListener('play', handlePlay)
+      audio.removeEventListener('pause', handlePause)
     }
   }, [])
 
-  // Autoplay when component mounts
+  // Intentar reproducir muteado para pasar políticas de autoplay
   useEffect(() => {
-    const playAudio = async () => {
-      try {
-        if (audioRef.current) {
-          console.log('[v0] Attempting autoplay...')
-          audioRef.current.muted = false
+    const attemptMutedAutoplay = async () => {
+      if (audioRef.current) {
+        audioRef.current.muted = true
+        try {
           const playPromise = audioRef.current.play()
-          
           if (playPromise !== undefined) {
-            playPromise
-              .then(() => {
-                console.log('[v0] Autoplay started successfully')
-                setIsPlaying(true)
-              })
-              .catch(err => {
-                console.log('[v0] Autoplay failed:', err.message)
-              })
+            await playPromise
+            console.log('[v0] Muted autoplay successful')
+            // Desmuteamos después de que inicie
+            setTimeout(() => {
+              if (audioRef.current) {
+                audioRef.current.muted = false
+              }
+            }, 300)
           }
+        } catch (err) {
+          console.log('[v0] Autoplay blocked - tap play button to start')
         }
-      } catch (err) {
-        console.log('[v0] Error in playAudio:', err)
       }
     }
 
-    // Trigger play immediately
-    playAudio()
-  }, [])
-
-  // Handle scroll to show floating button
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsFloating(window.scrollY > 200)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    attemptMutedAutoplay()
   }, [])
 
   return (
@@ -92,20 +74,19 @@ export function AudioPlayer() {
         loop
       />
       
-      {/* Floating button - appears on scroll */}
-      {isFloating && (
-        <button
-          onClick={togglePlayPause}
-          className="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full border-2 border-primary/60 bg-background/80 backdrop-blur-sm hover:border-primary hover:bg-primary/10 transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl"
-          aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
-        >
-          {isPlaying ? (
-            <Pause className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-          ) : (
-            <Play className="w-5 h-5 text-primary ml-0.5 group-hover:scale-110 transition-transform" />
-          )}
-        </button>
-      )}
+      {/* Botón flotante - siempre visible */}
+      <button
+        onClick={togglePlayPause}
+        className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full border-2 border-primary/60 bg-background/90 backdrop-blur-sm hover:border-primary hover:bg-primary/10 transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl hover:scale-110"
+        aria-label={isPlaying ? 'Pausar música' : 'Reproducir música'}
+        title={isPlaying ? 'Pausar' : 'Reproducir'}
+      >
+        {isPlaying ? (
+          <Pause className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+        ) : (
+          <Play className="w-6 h-6 text-primary ml-0.5 group-hover:scale-110 transition-transform" />
+        )}
+      </button>
     </>
   )
 }
