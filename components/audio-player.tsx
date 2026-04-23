@@ -43,21 +43,29 @@ export function AudioPlayer() {
     }
   }, [])
 
-  // Autoplay when page loads
+  // Autoplay when component mounts
   useEffect(() => {
     const playAudio = async () => {
       if (audioRef.current) {
+        // Allow autoplay by checking browser policy
+        audioRef.current.muted = true
         try {
           await audioRef.current.play()
+          // Try to unmute after starting
+          setTimeout(() => {
+            if (audioRef.current) {
+              audioRef.current.muted = false
+            }
+          }, 100)
           setIsPlaying(true)
         } catch (err) {
-          console.log('[v0] Autoplay failed:', err)
+          console.log('[v0] Autoplay policy restriction')
         }
       }
     }
 
-    // Delay slightly to ensure page is ready
-    const timer = setTimeout(playAudio, 500)
+    // Small delay to ensure audio element is ready
+    const timer = setTimeout(playAudio, 300)
     return () => clearTimeout(timer)
   }, [])
 
@@ -94,19 +102,6 @@ export function AudioPlayer() {
           )}
         </button>
       )}
-
-      {/* Static button in footer */}
-      <button
-        onClick={togglePlayPause}
-        className="w-14 h-14 rounded-full border-2 border-primary/50 hover:border-primary transition-all duration-300 flex items-center justify-center hover:bg-primary/5 group"
-        aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
-      >
-        {isPlaying ? (
-          <Pause className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors" />
-        ) : (
-          <Play className="w-5 h-5 text-primary ml-0.5 group-hover:text-primary/80 transition-colors" />
-        )}
-      </button>
     </>
   )
 }
