@@ -46,27 +46,30 @@ export function AudioPlayer() {
   // Autoplay when component mounts
   useEffect(() => {
     const playAudio = async () => {
-      if (audioRef.current) {
-        // Allow autoplay by checking browser policy
-        audioRef.current.muted = true
-        try {
-          await audioRef.current.play()
-          // Try to unmute after starting
-          setTimeout(() => {
-            if (audioRef.current) {
-              audioRef.current.muted = false
-            }
-          }, 100)
-          setIsPlaying(true)
-        } catch (err) {
-          console.log('[v0] Autoplay policy restriction')
+      try {
+        if (audioRef.current) {
+          console.log('[v0] Attempting autoplay...')
+          audioRef.current.muted = false
+          const playPromise = audioRef.current.play()
+          
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                console.log('[v0] Autoplay started successfully')
+                setIsPlaying(true)
+              })
+              .catch(err => {
+                console.log('[v0] Autoplay failed:', err.message)
+              })
+          }
         }
+      } catch (err) {
+        console.log('[v0] Error in playAudio:', err)
       }
     }
 
-    // Small delay to ensure audio element is ready
-    const timer = setTimeout(playAudio, 300)
-    return () => clearTimeout(timer)
+    // Trigger play immediately
+    playAudio()
   }, [])
 
   // Handle scroll to show floating button
@@ -86,6 +89,7 @@ export function AudioPlayer() {
         src="/omnipresente-v2.mp3"
         crossOrigin="anonymous"
         controlsList="nodownload"
+        loop
       />
       
       {/* Floating button - appears on scroll */}
