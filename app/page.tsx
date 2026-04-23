@@ -7,6 +7,7 @@ import { LinkCard } from "@/components/link-card"
 import { SolanaIcon, MusicIcon, PlaylistIcon, NearIcon, TortoiseIcon } from "@/components/social-icons"
 import { FloatingDecorations } from "@/components/decorations"
 import { SolanaTip } from "@/components/solana-tip"
+import { AudioPlayer } from "@/components/audio-player"
 import { LanguageSelector } from "@/components/language-selector"
 import { useTranslation, type Language } from "@/lib/translations"
 import { Feather } from "lucide-react"
@@ -271,16 +272,21 @@ export default function LinktreePage() {
 
         {/* Footer */}
         <footer className="mt-12 flex flex-col items-center gap-4">
-          {/* Powered by badge */}
-          <a
-            href="https://sns.id"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
-          >
-            <SolanaIcon className="w-4 h-4" />
-            <span>{t.poweredBy}</span>
-          </a>
+          {/* Powered by badge with Audio Player */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://sns.id"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+            >
+              <SolanaIcon className="w-4 h-4" />
+              <span>{t.poweredBy}</span>
+            </a>
+            
+            {/* Audio Player */}
+            <AudioPlayer />
+          </div>
           
           {/* Domain badge */}
           <div className="px-4 py-2 rounded-full bg-card/50 border border-border/50">
