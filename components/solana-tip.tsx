@@ -44,8 +44,8 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
         {t.supportText}
       </p>
 
-      {/* Three Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      {/* Three Cards - Single Column */}
+      <div className="flex flex-col gap-6 mb-10 max-w-md mx-auto w-full">
         {/* Card 1: Solana */}
         <div className="p-6 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm flex flex-col items-center gap-4">
           <h3 className="text-lg font-semibold text-primary">{t.solanaName}</h3>
@@ -99,7 +99,7 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
         </div>
 
         {/* Card 3: Ko-fi */}
-        <div className="md:col-span-1 flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4">
           <h3 className="text-lg font-semibold text-foreground text-center">{t.kofiPay}</h3>
           <a
             href="https://ko-fi.com/herimax/tip"
@@ -107,11 +107,11 @@ export function SolanaTip({ language = 'es' }: SolanaTipProps) {
             rel="noopener noreferrer"
             className="w-full group"
           >
-            <div className="relative w-full h-full rounded-xl overflow-hidden border border-border/50 hover:shadow-xl transition-all duration-300">
+            <div className="relative w-full rounded-xl overflow-hidden border border-border/50 hover:shadow-xl transition-all duration-300">
               <img
                 src="/kofi-banner.jpg"
                 alt="Support Herimax on Ko-fi"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             </div>
