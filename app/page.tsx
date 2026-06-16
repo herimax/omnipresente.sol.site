@@ -182,6 +182,10 @@ export default function LinktreePage() {
               videoId="cBKwN2dSt1c" 
               title="Video de Herimax" 
             />
+            <YouTubeEmbed 
+              videoId="jIETYIoXWO4" 
+              title="Video de Herimax" 
+            />
           </div>
         </section>
 
