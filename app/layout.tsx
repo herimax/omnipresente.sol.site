@@ -11,14 +11,21 @@ export const metadata: Metadata = {
   title: 'Herimax | omnipresente.sol',
   description: 'El poeta que hace cantar a la blockchain - Powered by sol.site',
   generator: 'v0.app',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: [
+      {
+        url: '/favicon.png',
+        type: 'image/png',
+        sizes: '32x32',
+      },
       {
         url: '/icon.png',
         type: 'image/png',
         sizes: '1024x1024',
       },
     ],
+    shortcut: ['/favicon.png'],
     apple: [
       {
         url: '/apple-icon.png',
