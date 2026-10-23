@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { SocialIcon, XIcon, YouTubeIcon, FarcasterIcon, TelegramIcon } from "./social-icons"
+import { SocialIcon, XIcon, YouTubeIcon, TelegramIcon } from "./social-icons"
 
 interface ProfileHeaderProps {
   name: string
@@ -9,7 +9,7 @@ interface ProfileHeaderProps {
   socials?: {
     twitter?: string
     youtube?: string
-    farcaster?: string
+    orb?: string
     telegram?: string
   }
 }
@@ -54,8 +54,18 @@ export function ProfileHeader({
           {socials.youtube && (
             <SocialIcon href={socials.youtube} icon={<YouTubeIcon />} label="YouTube" />
           )}
-          {socials.farcaster && (
-            <SocialIcon href={socials.farcaster} icon={<FarcasterIcon />} label="Farcaster" />
+          {socials.orb && (
+            <SocialIcon
+              href={socials.orb}
+              icon={
+                <img
+                  src="https://orb.club/favicon.ico"
+                  alt=""
+                  className="w-5 h-5 rounded-sm"
+                />
+              }
+              label="Orb"
+            />
           )}
           {socials.telegram && (
             <SocialIcon href={socials.telegram} icon={<TelegramIcon />} label="Telegram" />
