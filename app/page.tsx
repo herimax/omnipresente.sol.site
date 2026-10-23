@@ -23,7 +23,7 @@ const profile = {
   socials: {
     twitter: "https://x.com/Maximio79",
     youtube: "https://youtube.com/@herimax7",
-    farcaster: "https://farcaster.xyz/herimax",
+    orb: "https://orb.club/@herimax?sharedBy=herimax",
     telegram: "https://t.me/+CzVuvXbzp3IzZWMx",
   }
 }
