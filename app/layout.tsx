@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Herimax | omnipresente.sol',
-  description: 'El poeta que hace cantar a la blockchain - Powered by sol.site',
+  title: 'Herimax',
+  description: 'El poeta que hace cantar a la blockchain.',
   generator: 'v0.app',
   manifest: '/manifest.webmanifest',
   icons: {

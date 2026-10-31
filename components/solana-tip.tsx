@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import { useTranslation, type Language } from "@/lib/translations"
 
-const SOLANA_ADDRESS = "omnipresente.sol"
+const SOLANA_ADDRESS = ""
 const ETHEREUM_ADDRESS = "0x4090f1eb674317fec844b354e26ce232b0cf0fbf"
 
 interface SolanaTipProps {
