@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { ProfileHeader } from "@/components/profile-header"
 import { YouTubeEmbed } from "@/components/youtube-embed"
 import { LinkCard } from "@/components/link-card"
-import { SolanaIcon, MusicIcon, PlaylistIcon, NearIcon, TortoiseIcon } from "@/components/social-icons"
+import { MusicIcon, PlaylistIcon, NearIcon, TortoiseIcon } from "@/components/social-icons"
 import { FloatingDecorations } from "@/components/decorations"
 import { SolanaTip } from "@/components/solana-tip"
 import { LanguageSelector } from "@/components/language-selector"
@@ -17,7 +17,7 @@ import { Feather } from "lucide-react"
 
 const profile = {
   name: "Herimax",
-  username: "omnipresente.sol",
+    username: "Herimax",
   bio: "Poetry writer | 🎵 AI Music | 🌍 Crypto\n\nPassionate explorer of technology, Bitcoin and NFTs, weaving verses into sound, building trust in Web3, Rootstocker, web3 Music Collector.",
   avatarUrl: "/avatar.png",
   socials: {
@@ -273,26 +273,7 @@ export default function LinktreePage() {
         {/* Divider */}
         <div className="w-full h-px bg-border/50 mt-12" />
 
-        {/* Footer */}
-        <footer className="mt-12 flex flex-col items-center gap-4">
-          {/* Powered by badge */}
-          <a
-            href="https://sns.id"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
-          >
-            <SolanaIcon className="w-4 h-4" />
-            <span>{t.poweredBy}</span>
-          </a>
-          
-          {/* Domain badge */}
-          <div className="px-4 py-2 rounded-full bg-card/50 border border-border/50">
-            <span className="font-mono text-xs text-muted-foreground">
-              omnipresente.sol.site
-            </span>
-          </div>
-        </footer>
+
       </div>
     </main>
   )
